@@ -1,5 +1,7 @@
 #include <SDL.h>
+#include <stdlib.h>
 #include <iostream>
+
 
 int main(int argc, char* argv[])
 {
@@ -33,8 +35,14 @@ int main(int argc, char* argv[])
 		SDL_RenderClear(renderer);
 
 		// draw line
-		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
-		SDL_RenderDrawLine(renderer, 0, 0, 800, 600);
+		//SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
+		for (int i = 0; i < 1000; i++)
+			SDL_RenderDrawLine(renderer, 0, 0, rand()%800, rand()%600);
+			SDL_RenderDrawPoint(renderer, 400, 300);
+			//SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
+			SDL_SetRenderDrawColor(renderer, rand() % 256, rand() % 256, rand() % 256, 0);
+
+
 
 		// show screen
 		SDL_RenderPresent(renderer);
