@@ -15,6 +15,7 @@ int main(int argc, char* argv[])
 	Renderer renderer;
 	Input input;
 	renderer.Initialize();
+	input.Initialize();
 	renderer.CreateWindow("Game Engine", 800, 600);
 
 	
