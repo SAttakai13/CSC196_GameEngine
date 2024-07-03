@@ -1,6 +1,7 @@
 #include "../../Engine/Source/Vector2.h"
 #include "../../Engine/Source/Renderer.h"
 #include "../../Engine/Source/Input.h"
+#include "../../Engine/Source/Particle.h"
 #include <SDL.h>
 #include <stdlib.h>
 #include <iostream>
