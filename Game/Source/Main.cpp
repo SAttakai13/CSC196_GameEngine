@@ -76,14 +76,14 @@ int main(int argc, char* argv[])
 		renderer.BeginFrame();
 
 			//// draw line
-		renderer.SetColor(256, 256, 256, 0);
+		renderer.SetColor(255, 255, 255, 0);
 		for (Particle particle : particles)
 		{
 			particle.Draw(renderer);
 		}
 
 
-			//// show screen
+		// show screen
 		renderer.EndFrame();
 	}
 
