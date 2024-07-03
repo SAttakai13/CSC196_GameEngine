@@ -15,6 +15,6 @@ struct Particle
 		velocity{ velocity } 
 	{};
 
-	void Update();
+	void Update(float dt);
 	void Draw(Renderer& renderer);
 };

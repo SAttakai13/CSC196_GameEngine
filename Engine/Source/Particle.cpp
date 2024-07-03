@@ -1,8 +1,8 @@
 #include "Particle.h"
 
-void Particle::Update()
+void Particle::Update(float dt)
 {
-	position = position + velocity;
+	position = position + (velocity * dt);
 }
 
 void Particle::Draw(Renderer& renderer)
