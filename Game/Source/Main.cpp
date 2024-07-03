@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 		renderer.BeginFrame();
 
 			//// draw line
-		renderer.SetColor(256, 256, 256, 0);
+		renderer.SetColor(255, 255, 255, 0);
 		/*renderer.DrawLine(0, 0, rand() % 800, rand() % 600);
 		renderer.DrawLine(300, 400, 400, 300);
 		renderer.DrawLine(400, 300, 500, 400);
@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
 		renderer.DrawLine(v1.x, v1.y, v2.x, v2.y);*/
 		for (int i = 0; points.size() > 1 && i < points.size() - 1; i++)
 		{
-			renderer.SetColor(rand() % 256, rand() % 256, rand() % 256, 0);
+			renderer.SetColor(rand() % 255, rand() % 255, rand() % 255, 0);
 			renderer.DrawLine(points[i].x, points[i].y, points[i+1].x, points[i+1].y);
 		}
 
