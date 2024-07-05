@@ -1,9 +1,9 @@
-#include "../../Engine/Source/Vector2.h"
-#include "../../Engine/Source/Renderer.h"
-#include "../../Engine/Source/Input.h"
-#include "../../Engine/Source/Particle.h"
-#include "../../Engine/Source/Random.h"
-#include "../../Engine/Source/ETime.h"
+#include "Vector2.h"
+#include "Renderer.h"
+#include "Input.h"
+#include "Particle.h"
+#include "Random.h"
+#include "ETime.h"
 #include <SDL.h>
 #include <stdlib.h>
 #include <iostream>
@@ -26,10 +26,10 @@ int main(int argc, char* argv[])
 
 	std::vector<Particle> particles;
 
-	for (int i = 0; i < 10000; i++)
+	/*for (int i = 0; i < 10000; i++)
 	{
-		particles.push_back(Particle{ {rand() % 800, rand() % 800}, { randomf(60, 120), 0.0f} });
-	}
+		particles.push_back(Particle{ {rand() % 800, rand() % 800}, { randomf(60, 120), 0.0f}, randomf(1.0, 5.0)});
+	}*/
 
 	//main
 	bool quit = false;
@@ -53,7 +53,8 @@ int main(int argc, char* argv[])
 
 		if (input.GetMouseButtonDown(0))
 		{
-			particles.push_back(Particle{ mousePosition, { randomf(-100, 100), randomf(-100, 100)} });
+			for(int i = 0; i < 100; i++)
+				particles.push_back(Particle{ mousePosition, { randomf(-100, 100), randomf(-100, 100)}, randomf(1.0, 5.0) });
 		}
 
 		for (Particle& particle : particles)

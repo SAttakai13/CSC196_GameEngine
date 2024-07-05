@@ -14,7 +14,14 @@ struct Particle
 		position{ position }, 
 		velocity{ velocity } 
 	{};
+	Particle(Vector2 position, Vector2 velocity, float lifespan) :
+		position{ position },
+		velocity{ velocity },
+		lifespan{ lifespan }
+	{
+	};
 
 	void Update(float dt);
 	void Draw(Renderer& renderer);
+
 };

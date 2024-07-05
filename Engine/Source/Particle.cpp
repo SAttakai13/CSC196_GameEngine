@@ -2,10 +2,18 @@
 
 void Particle::Update(float dt)
 {
-	position = position + (velocity * dt);
+	if (lifespan != 0)
+	{
+		lifespan -= dt;
+		position = position + (velocity * dt);
+	}
+	
 }
 
 void Particle::Draw(Renderer& renderer)
 {
-	renderer.DrawPoint(position.x, position.y);
+	if (lifespan >= 0)
+	{
+		renderer.DrawPoint(position.x, position.y);
+	}
 }
