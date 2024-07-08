@@ -4,6 +4,7 @@
 #include "Particle.h"
 #include "Random.h"
 #include "ETime.h"
+#include "MathUtils.h"
 #include <SDL.h>
 #include <stdlib.h>
 #include <iostream>
@@ -17,6 +18,7 @@ int main(int argc, char* argv[])
 {
 	Renderer renderer;
 	Input input;
+	float offset = 0;
 	
 	renderer.Initialize();
 	renderer.CreateWindow("Game Engine", 800, 800);
@@ -54,7 +56,7 @@ int main(int argc, char* argv[])
 		if (input.GetMouseButtonDown(0))
 		{
 			for(int i = 0; i < 100; i++)
-				particles.push_back(Particle{ mousePosition, { randomf(-100, 100), randomf(-100, 100)}, randomf(1.0, 5.0) });
+				particles.push_back(Particle{ mousePosition, randomOnUnitCircle() * randomf(25, 175), randomf(1.0, 5.0)});
 		}
 
 		for (Particle& particle : particles)
@@ -74,7 +76,20 @@ int main(int argc, char* argv[])
 		//DRAW
 		// clear screen
 		renderer.SetColor(0, 0, 0, 0);
-		renderer.BeginFrame();
+		//renderer.BeginFrame();
+
+		renderer.SetColor(255, 255, 255, 0);
+
+		float radius = 200.0f;
+		offset += (90 * time.GetDeltaTime());
+		for (float angle = 0; angle < 360; angle += 360 / 30)
+		{
+			float x = Math::Cos(Math::DegToRad(angle + offset)) * Math::Sin((offset + angle) * 0.045f) * radius;
+			float y = Math::Sin(Math::DegToRad(angle + offset)) * Math::Sin((offset + angle) * 0.045f) * radius;
+
+			renderer.SetColor(random(255), random(255), random(255), 0);
+			renderer.DrawRect(x, y, 4.0f, 4.0f);
+		}
 
 			//// draw line
 		renderer.SetColor(255, 255, 255, 0);
