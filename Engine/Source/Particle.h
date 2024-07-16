@@ -6,6 +6,7 @@ struct Particle
 {
 	Vector2 position{0,0};
 	Vector2 velocity{0,0};
+	Renderer point;
 	float lifespan{0};
 
 	Particle() = default;
@@ -20,6 +21,7 @@ struct Particle
 		lifespan{ lifespan }
 	{
 	};
+
 
 	void Update(float dt);
 	void Draw(Renderer& renderer);
